@@ -8,7 +8,7 @@
         android:name="com.example.runnintracker.ui.fragments.RunFragment"
         android:label="RunFragment" >
         <action
-            android:id="@+id/action_runFragment_to_trackingFragment2"
+            android:id="@+id/action_runFragment_to_trackingFragment"
             app:destination="@id/trackingFragment" />
     </fragment>
     <fragment

@@ -13,7 +13,6 @@ class SessionManagement @Inject constructor(@ApplicationContext context: Context
     var sharedPreferences: SharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
     var editor: SharedPreferences.Editor = sharedPreferences.edit()
 
-
     fun saveSession(user: User){
         val userName: String = user.userName
         val userAge: Int = user.userAge
@@ -24,6 +23,7 @@ class SessionManagement @Inject constructor(@ApplicationContext context: Context
         editor.putInt("age", userAge)
         editor.putFloat("height", userHeight)
         editor.putFloat("weight", userWeight)
+        editor.putInt("runFragOpen", 0)
         editor.commit()
 
     }
@@ -46,12 +46,22 @@ class SessionManagement @Inject constructor(@ApplicationContext context: Context
         return currentUser
     }
 
+    fun getTimesOpened(): Int{
+        return sharedPreferences.getInt("runFragOpen", -1)
+    }
+
+    fun IncTimesOpened(): Unit {
+        val value: Int = getTimesOpened()
+        editor.putInt("runFragOpen", value + 1)
+        editor.commit()
+    }
+
     fun removeSession(){
         editor.putString("name", "")
         editor.putInt("age", -1)
         editor.putFloat("height", -1F)
         editor.putFloat("weight", -1F)
+        editor.putInt("runFragOpen", 0)
         editor.commit()
-
     }
 }

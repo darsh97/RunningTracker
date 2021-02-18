@@ -43,12 +43,10 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
 
 
         navButton.setOnClickListener {
-
             val userName = username.text.toString().trim()
             val userAge = userage.text.toString().trim().toInt()
             val userHeight = userheight.text.toString().trim().toFloat()
             val userWeight = userweight.text.toString().trim().toFloat()
-
             login(userName, userAge, userHeight, userWeight)
         }
     }

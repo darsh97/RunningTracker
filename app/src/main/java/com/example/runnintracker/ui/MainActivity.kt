@@ -3,6 +3,7 @@ package com.example.runnintracker.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.runnintracker.R
@@ -19,6 +20,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_nav)
         bottomNav.setupWithNavController(navHostFragment.findNavController())
+        bottomNav.setOnNavigationItemSelectedListener( { item ->
+            when (item.itemId) {
+                R.id.nav_run -> {
+                    navHostFragment.findNavController().navigate(R.id.runFragment)
+                }
+
+                R.id.nav_stats -> {
+                    navHostFragment.findNavController().navigate(R.id.statisticsFragment)
+                }
+
+                R.id.nav_settings -> {
+                    navHostFragment.findNavController().navigate(R.id.settingsFragment)
+                }
+            }
+            true
+        })
 
         navHostFragment.findNavController()
             .addOnDestinationChangedListener { _, destination, _ ->
@@ -28,5 +45,6 @@ class MainActivity : AppCompatActivity() {
                     else -> bottomNav.visibility = View.GONE
                 }
             }
+
     }
 }
