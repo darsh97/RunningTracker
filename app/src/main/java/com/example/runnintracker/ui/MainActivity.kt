@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_nav)
         bottomNav.setupWithNavController(navHostFragment.findNavController())
-        bottomNav.setOnNavigationItemSelectedListener( { item ->
+        bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_run -> {
                     navHostFragment.findNavController().navigate(R.id.runFragment)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
-        })
+        }
 
         navHostFragment.findNavController()
             .addOnDestinationChangedListener { _, destination, _ ->

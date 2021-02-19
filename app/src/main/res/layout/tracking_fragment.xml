@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
 
     <TextView
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/tview_time_elapsed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tracking Fragment"
-        />
+        android:padding="10dp"
+        android:text="time elapsed: 0:00:00" />
+
+    <TextView
+        android:id="@+id/tview_distance_travelled"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Distance travelled: 0 km" />
+
+    <TextView
+        android:id="@+id/tview_calories_burned"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/tview_time_elapsed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="50dp"
+        android:text="Distance travelled: 0 km" />
+
+    <Button
+        android:id="@+id/btn_startRun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/tview_calories_burned"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="59dp"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/btn_stopRun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/btn_startRun"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:text="Stop" />
 
 
 </RelativeLayout>
